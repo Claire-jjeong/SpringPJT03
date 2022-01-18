@@ -18,7 +18,7 @@
   		loadList();
   		
   	});
-  	//수정기능
+  	//수정기능 
   	function upClick(idx){ //idx에 맞는 content가져오기
   		var contents=$("#c"+idx).val();
   		$.ajax({
