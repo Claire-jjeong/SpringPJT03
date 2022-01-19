@@ -34,5 +34,5 @@ public interface BoardMapper { //DB와 연동
 	public void boardTWUpdateAjax(Board vo);
 	
 	@Select("select * from member where memId=#{memId} and memPass=#{memPass}")
-	public void login(Member vo);
+	public Member login(Member vo);
 }

@@ -168,10 +168,12 @@
 </head>
 <body>
 
+
 <div class = "container">
 	<h2>Spring WEB MVC03(+회원인증)</h2>
 	<div class = "panel panel-default">
 	<div class = "panel-heading">
+		<c:if test="${empty mvo}">
 		<form class="form-inline" action="${cpath}/login.do" method="post">
 		  <div class="form-group">
 		    <label for="memId">아이디:</label>
@@ -184,6 +186,13 @@
 		  
 		  <button type="submit" class="btn btn-default">로그인</button>
 		</form>
+		</c:if>
+		<c:if test = "${!empty mvo}">
+			<div class = "form-group">
+				<label>${mvo.memName}님 방문을 환영합니다!</label>
+				<button class = "btn btn-info btn-sm">로그아웃</button>
+			</div>
+		</c:if>
 	</div>
 	<div class = "panel-body blist">Panel Content</div>
 	<div class="panel-body rform" style="display:none">
