@@ -172,7 +172,7 @@
 	<h2>Spring WEB MVC03(+회원인증)</h2>
 	<div class = "panel panel-default">
 	<div class = "panel-heading">
-		<form class="form-inline" action="/action_page.php">
+		<form class="form-inline" action="${cpath}/login.do" method="post">
 		  <div class="form-group">
 		    <label for="memId">아이디:</label>
 		    <input type="text" class="form-control" name = "memId" id="memId">
