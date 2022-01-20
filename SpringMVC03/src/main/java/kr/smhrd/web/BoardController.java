@@ -32,5 +32,10 @@ public class BoardController {
 		}
 		return "redirect:/";
 	}
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate(); //세션무효화(로그아웃)
+		return "redirect:/";
+	}
 
 }
