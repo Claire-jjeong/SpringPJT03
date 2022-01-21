@@ -2,7 +2,7 @@ package kr.board.domain;
 
 import lombok.Data;
 
-@Data //lombok(롬복)API
+@Data//lombok(롬복)API
 public class Board { 
 	//property(프로퍼티, 속성)
 	private int idx; //번호 

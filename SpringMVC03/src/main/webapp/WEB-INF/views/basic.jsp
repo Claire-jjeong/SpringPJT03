@@ -77,11 +77,11 @@
 	      
   		//로그인 했을 경우에만 글쓰기 활성화 
   		if(${!empty mvo}){
-  		blist+="<tr>";
-  		blist+="<td colspan='7'>";
-  		blist+="<button class = 'btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
-  		blist+="</td>";
-  		blist+="</tr>";
+	  		blist+="<tr>";
+	  		blist+="<td colspan='7'>";
+	  		blist+="<button class = 'btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
+	  		blist+="</td>";
+	  		blist+="</tr>";
   		}
   		
   		
