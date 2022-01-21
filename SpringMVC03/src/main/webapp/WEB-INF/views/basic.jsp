@@ -75,13 +75,14 @@
             blist+="</tr>";
   		});
 	      
-  		
+  		//로그인 했을 경우에만 글쓰기 활성화 
+  		if(${!empty mvo}){
   		blist+="<tr>";
   		blist+="<td colspan='7'>";
   		blist+="<button class = 'btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
   		blist+="</td>";
   		blist+="</tr>";
-  		
+  		}
   		
   		
   		blist+="</table>";
@@ -200,6 +201,8 @@
 	<div class="panel-body rform" style="display:none">
 	<!-- 글쓰기 UI -->
 	<form id = "frm" class="form-horizontal" method = "post"> 
+			<!-- 로그인 한 사용자 정보 가져오는 파라미터 처리 -->
+		  <input type = "hidden" name = "memId" value="${mvo.memId}"> 
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="title">제목:</label>
 		    <div class="col-sm-10">								<!-- 서버로 전송하기 위해 Parameter이름, board 이름, 데이터베이스 이름과 동일하게 설정 -->
