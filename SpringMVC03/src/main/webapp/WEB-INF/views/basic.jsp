@@ -59,8 +59,20 @@
   	  		blist+="<td id = 'w"+obj.idx+"'>"+obj.writer+"</td>";
   	  		blist+="<td>"+obj.indate+"</td>";
   	  		blist+="<td>"+obj.count+"</td>";
-  	  		blist+="<td id = 'u"+obj.idx+"'><button class='btn btn-info btn-sm' onclick='goUpdate("+obj.idx+")'>수정</button></td>"; //upclick은 제목만 수정
-  	  		blist+="<td><button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button></td>";
+  	  		//로그인 안했을때는 수정삭제 불가능 
+  	  		//로그인 했어도 작성자만 수정 삭제 가능하도록 
+  	  		if(${!empty mvo}){
+  	  			if("${mvo.memId}"==obj.memId){
+		  	  		blist+="<td id = 'u"+obj.idx+"'><button class='btn btn-info btn-sm' onclick='goUpdate("+obj.idx+")'>수정</button></td>"; //upclick은 제목만 수정
+		  	  		blist+="<td><button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button></td>";
+  	  			}else{
+		  	  		blist+="<td id = 'u"+obj.idx+"'><button disabled class='btn btn-info btn-sm' onclick='goUpdate("+obj.idx+")'>수정</button></td>"; //upclick은 제목만 수정
+		  	  		blist+="<td><button disabled class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button></td>";
+  	  			}
+  	  		}else{
+	 	  		blist+="<td id = 'u"+obj.idx+"'><button disabled class='btn btn-info btn-sm' onclick='goUpdate("+obj.idx+")'>수정</button></td>"; //upclick은 제목만 수정
+	  	  		blist+="<td><button disabled class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button></td>";
+  	  		}
   	  		blist+="</tr>";
   	  		
   		//제목 눌렀을 때 나오는 화면 
