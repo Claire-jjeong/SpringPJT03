@@ -80,7 +80,12 @@
             blist+="<td>내용</td>";
             blist+="<td colspan='6'><textarea rows='7' id='c"+obj.idx+"' class='form-control'>"+obj.contents+"</textarea>";
             blist+="<br/>";
+            //자기 글일 경우에만 수정 할 수 있도록
+          if("${mvo.memId}"==obj.memId){
            blist+="<button class='btn btn-info btn-sm' onclick='upClick("+obj.idx+")'>수정</button>";
+          }else{
+           blist+="<button disabled class='btn btn-info btn-sm' onclick='upClick("+obj.idx+")'>수정</button>";
+          }
            blist+="&nbsp;<button class='btn btn-warning btn-sm'>취소</button>";
            blist+="&nbsp;<button class='btn btn-danger btn-sm' onclick='goClose("+obj.idx+")'>닫기</button>";
            blist+="</td>";
