@@ -41,4 +41,9 @@ public class BoardRestController { //OpenAPI - JSON
 	public void boardTWUpdateAjax(Board vo) {
 		service.boardTWUpdateAjax(vo);
 	}
+	@RequestMapping("/boardCountAjax.do")
+	public Board boardCountAjax(int idx) { //게시판 idx받아오기 
+		Board vo = service.boardCountAjax(idx); //서비스에서 처리 , 게시판 정보를 받아서 리턴 해야함 
+		return vo;
+	}
 }

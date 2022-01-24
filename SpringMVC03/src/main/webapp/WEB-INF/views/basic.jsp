@@ -58,7 +58,7 @@
   	  		blist+="<td id='t"+obj.idx+"'><a href='javascript:goContent("+obj.idx+")'>"+obj.title+"</a></td>";
   	  		blist+="<td id = 'w"+obj.idx+"'>"+obj.writer+"</td>";
   	  		blist+="<td>"+obj.indate+"</td>";
-  	  		blist+="<td>"+obj.count+"</td>";
+  	  		blist+="<td id='count"+obj.idx+"'>"+obj.count+"</td>";
   	  		//로그인 안했을때는 수정삭제 불가능 
   	  		//로그인 했어도 작성자만 수정 삭제 가능하도록 
   	  		if(${!empty mvo}){
@@ -149,6 +149,18 @@
           $("#cv"+idx).css("display","table-row");
         }else{
            $("#cv"+idx).css("display","none");
+        }
+        //조회수 누적
+        if($("#cv"+idx).css("display")!="none"){
+        	$.ajax({
+        		url:"${cpath}/boardCountAjax.do",
+        		type : "get",
+        		data: {"idx":idx},
+        		dataType: "json", //업데이트 한 다음에 조회수를 가지고 와서 내려보내줌 
+        		success : function(data){
+        			$("#count"+idx).text(data.count);},
+        		error: function(){alert("error");}
+        	});
         }
      }
   	

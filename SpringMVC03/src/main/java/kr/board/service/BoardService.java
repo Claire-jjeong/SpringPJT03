@@ -40,5 +40,16 @@ public class BoardService { //로직구현
 	public Member login(Member vo) {
 		return mapper.login(vo);
 	}
+
+
+	public Board boardCountAjax(int idx) { 
+		mapper.boardCountAjax(idx); //조회수 업데이트 
+		// 다시 게시판 정보 가져오기
+		Board vo = mapper.boardContent(idx);
+		return vo;
+	}
+
+
+	
 	
 }

@@ -35,4 +35,7 @@ public interface BoardMapper { //DB와 연동
 	
 	@Select("select * from member where memId=#{memId} and memPass=#{memPass}")
 	public Member login(Member vo);
+	
+	@Update("update board set count=count+1 where idx=#{idx}") //조회수 업데이트 
+	public void boardCountAjax(int idx);
 }
